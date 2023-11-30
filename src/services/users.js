@@ -1,19 +1,23 @@
 import { api as http } from "./axios.js";
 
-const GetOneUser = (userId) => {
-  return http.get(`/user/${userId}`);
+const GetOneUser = async (userId) => {
+  const response = await http.get(`/user/${userId}`);
+  return response
 };
 
-const GetUserActivity = (userId) => {
-  return http.get(`/user/${userId}/activity`);
+const GetUserActivity = async (userId) => {
+  const response = await http.get(`/user/${userId}/activity`);
+  return response
 };
 
-const GetUserAverageSessions = (userId) => {
-  return http.get(`/user/${userId}/average-sessions`);
+const GetUserAverageSessions = async (userId) => {
+  const response = await http.get(`/user/${userId}/average-sessions`);
+  return response
 };
 
-const GetUserPerformance = (userId) => {
-  return http.get(`/user/${userId}/performance`);
+const GetUserPerformance = async (userId) => {
+  const response = await http.get(`/user/${userId}/performance`);
+  return response
 };
 
 export { GetOneUser, GetUserActivity, GetUserAverageSessions, GetUserPerformance };

@@ -12,7 +12,7 @@ const App = () => {
         <HorizontalNav />
         <VerticalNav />
         <Routes>
-          <Route path="/" element={<DashBoard />} />
+          <Route path="/user/:userId" element={<DashBoard />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>

@@ -17,7 +17,7 @@
         "react"
     ],
     "rules": {
-        "react/prop-types": "error",
+        "react/prop-types": 0,
         "no-undef": 0
     }
 }

@@ -1,0 +1,80 @@
+.activityChart {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  padding: 1em;
+  background-color: #fbfbfb;
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    &--title {
+      display: flex;
+      flex-direction: row;
+      font-size: 1em;
+    }
+    &--legend {
+      display: flex;
+      flex-direction: row;
+      font-weight: bold;
+      font-size: 0.8em;
+      color: #74798c;
+      .axisTitle {
+        margin: 0 5px 0 5px;
+      }
+      .weightDot {
+        background-color: #000;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 5px 0 5px;
+      }
+
+      .caloriesDot {
+        background-color: #e60000;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 5px 0 5px;
+      }
+    }
+  }
+}
+
+.sessionsChart {
+  display: flex;
+  flex-direction: column;
+  margin-right: 2em;
+  padding: 1em;
+  background-color: #e60000;
+  max-width: 33.33%;
+  width: 100%;
+  border-radius: 0.5em;
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    &--title {
+      display: flex;
+      flex-direction: row;
+      font-size: 1em;
+      color: #FFF;
+      opacity: 0.5;
+    }
+  }
+}
+
+.radarsChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282D30;
+  width: 100%;
+  border-radius: 0.5em;
+  max-width: 33.33%;
+  margin-right: 2em;
+}

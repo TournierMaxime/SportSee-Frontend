@@ -3,8 +3,9 @@ import PropTypes from "prop-types"
 import { useParams } from "react-router-dom"
 import Title from "../utils/Title"
 import Activity from "../components/user/Activity"
-import useHandleUsers from "../hooks/useHandleUsers"
-import useHandleUserActivity from "../hooks/useHandleUserActivity"
+import Sessions from "../components/user/Sessions"
+import Performances from "../components/user/Performances"
+import useFetch from "../hooks/useFetch"
 
 /**
  * Composant pour définir le titre de la page.
@@ -16,31 +17,34 @@ import useHandleUserActivity from "../hooks/useHandleUserActivity"
 const DashBoard = () => {
   const { userId } = useParams()
 
-  const { user, fetchDataUser } = useHandleUsers({ userId })
-  const { userActivity, fetchDataUserActivity } = useHandleUserActivity({
-    userId,
-  })
+  const { userData, fetchData } = useFetch({ userId })
+
+  console.log("userData", userData)
 
   useEffect(() => {
-    fetchDataUser()
-    fetchDataUserActivity()
+    fetchData()
   }, [userId])
 
   return (
     <Fragment>
       <Title
-        title={`Profil de ${user?.userInfos?.lastName} ${user?.userInfos?.firstName}`}
+        title={`Profil de ${userData?.userInfos?.identity?.lastName} ${userData?.userInfos?.identity?.firstName}`}
       />
       <div className="container">
         <h1>
           Bonjour{" "}
-          <span style={{ color: "red" }}>{user?.userInfos?.firstName}</span>
+          <span style={{ color: "red" }}>
+            {userData?.userInfos?.identity?.firstName}
+          </span>
         </h1>
         <p style={{ margin: 0, padding: 0 }}>
           Félicitation ! Vous avez explosé vos objectifs hier 👏
         </p>
-
-        <Activity data={userActivity?.sessions} />
+        <Activity data={userData?.activity} />
+        <div style={{display: 'flex', flexDirection: 'row', marginTop: "2em"}}>
+          <Sessions data={userData?.averageSessions} />
+          <Performances data={userData?.performance} />
+        </div>
       </div>
     </Fragment>
   )

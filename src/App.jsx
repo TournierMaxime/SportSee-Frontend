@@ -1,8 +1,7 @@
 import React, { Fragment } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import DashBoard from "./views/DashBoard"
+import Profile from "./views/Profile"
 import HorizontalNav from "./components/HorizontalNav"
-import VerticalNav from "./components/VerticalNav"
 import Error404 from "./utils/Error404"
 
 const App = () => {
@@ -10,9 +9,8 @@ const App = () => {
     <Fragment>
       <Router>
         <HorizontalNav />
-        <VerticalNav />
         <Routes>
-          <Route path="/user/:userId" element={<DashBoard />} />
+          <Route path="/user/:userId" element={<Profile />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>

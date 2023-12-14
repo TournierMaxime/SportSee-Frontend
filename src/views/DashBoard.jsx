@@ -6,6 +6,7 @@ import Activity from "../components/user/Activity"
 import Sessions from "../components/user/Sessions"
 import Performances from "../components/user/Performances"
 import useFetch from "../hooks/useFetch"
+import Score from "../components/user/Score"
 
 /**
  * Composant pour définir le titre de la page.
@@ -41,9 +42,10 @@ const DashBoard = () => {
           Félicitation ! Vous avez explosé vos objectifs hier 👏
         </p>
         <Activity data={userData?.activity} />
-        <div style={{display: 'flex', flexDirection: 'row', marginTop: "2em"}}>
+        <div style={{display: 'flex', flexDirection: 'row', marginTop: "2em", width: '76%'}}>
           <Sessions data={userData?.averageSessions} />
           <Performances data={userData?.performance} />
+          <Score data={userData?.userInfos?.score} />
         </div>
       </div>
     </Fragment>

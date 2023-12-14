@@ -1,14 +1,6 @@
 import React from "react"
 
 class Statistics {
-  static indexedData = (data) => {
-    if (!data) return
-
-    return data?.map((session, index) => ({
-      ...session,
-      index: index + 1,
-    }))
-  }
 
   static tooltipBar = (props) => {
     const { active, payload } = props

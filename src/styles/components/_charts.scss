@@ -4,6 +4,8 @@
   margin-top: 2em;
   padding: 1em;
   background-color: #fbfbfb;
+  width: 79%;
+  border-radius: 0.5em;
   &__container {
     display: flex;
     flex-direction: row;
@@ -62,7 +64,7 @@
       display: flex;
       flex-direction: row;
       font-size: 1em;
-      color: #FFF;
+      color: #fff;
       opacity: 0.5;
     }
   }
@@ -72,9 +74,58 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #282D30;
+  background-color: #282d30;
   width: 100%;
   border-radius: 0.5em;
   max-width: 33.33%;
   margin-right: 2em;
+}
+
+.radialChart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fbfbfb;
+  width: 100%;
+  border-radius: 0.5em;
+  max-width: 33.33%;
+  margin-right: 2em;
+  position: relative;
+  &__title {
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    left: 30px;
+    top: 0;
+  }
+  &__label {
+    position: absolute;
+    left: 21%;
+    top: 25%;
+    text-align: center;
+    font-weight: bold;
+    background-color: white;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    &--pourcent {
+      font-size: 26px;
+      color: black;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+    }
+    &--goal {
+      font-size: 16px;
+      color: #74798c;
+      width: 60px;
+      margin-top: 5px;
+      display: contents;
+    }
+  }
 }

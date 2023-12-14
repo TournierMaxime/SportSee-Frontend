@@ -3,14 +3,13 @@ import React from "react"
 import Statistics from "../../../utils/Statistics"
 
 const Histogram = ({ data }) => {
-  const indexedData = Statistics.indexedData(data)
   const renderTooltip = Statistics.tooltipBar
 
   return (
     <BarChart
-      width={730}
+      width={685}
       height={250}
-      data={indexedData}
+      data={data}
       reverseStackOrder={true}
       barSize={10}
     >

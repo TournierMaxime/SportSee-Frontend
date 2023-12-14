@@ -6,7 +6,7 @@ const Lines = ({ data }) => {
   const renderTooltip = Statistics.tooltipLine
 
   return (
-    <LineChart width={250} height={200} data={data}>
+    <LineChart width={180} height={100} data={data}>
       <XAxis
         dataKey="day"
         axisLine={false}

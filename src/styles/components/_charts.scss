@@ -4,7 +4,7 @@
   margin-top: 2em;
   padding: 1em;
   background-color: #fbfbfb;
-  width: 79%;
+  width: 90%;
   border-radius: 0.5em;
   &__container {
     display: flex;
@@ -128,4 +128,11 @@
       display: contents;
     }
   }
+}
+
+.charts {
+  display: flex;
+  flex-direction: row;
+  margin-top: 2em;
+  width: 76%;
 }

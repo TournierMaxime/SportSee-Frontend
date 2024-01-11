@@ -2,6 +2,15 @@
   display: flex;
   flex-direction: column;
   margin: 2em 0 0 4em;
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    &--card {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+    }
+  }
 }
 
 .verticalNav {

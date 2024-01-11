@@ -7,6 +7,8 @@ import Sessions from "../components/user/Sessions"
 import Performances from "../components/user/Performances"
 import useFetch from "../hooks/useFetch"
 import Score from "../components/user/Score"
+import Statistics from "../components/Statistics"
+import Heading from "../components/Heading"
 
 /**
  * Composant pour définir le titre de la page.
@@ -32,20 +34,17 @@ const DashBoard = () => {
         title={`Profil de ${userData?.userInfos?.identity?.lastName} ${userData?.userInfos?.identity?.firstName}`}
       />
       <div className="container">
-        <h1>
-          Bonjour{" "}
-          <span style={{ color: "red" }}>
-            {userData?.userInfos?.identity?.firstName}
-          </span>
-        </h1>
-        <p style={{ margin: 0, padding: 0 }}>
-          Félicitation ! Vous avez explosé vos objectifs hier 👏
-        </p>
-        <Activity data={userData?.activity} />
-        <div style={{display: 'flex', flexDirection: 'row', marginTop: "2em", width: '76%'}}>
-          <Sessions data={userData?.averageSessions} />
-          <Performances data={userData?.performance} />
-          <Score data={userData?.userInfos?.score} />
+        <Heading firstName={userData?.userInfos?.identity?.firstName} />
+        <div className="container__cards">
+          <div className="container__cards--card">
+            <Activity data={userData?.activity} />
+            <div className="charts">
+              <Sessions data={userData?.averageSessions} />
+              <Performances data={userData?.performance} />
+              <Score data={userData?.userInfos?.score} />
+            </div>
+          </div>
+          <Statistics nutrients={userData?.userInfos?.nutrients} />
         </div>
       </div>
     </Fragment>

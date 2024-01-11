@@ -1,0 +1,33 @@
+.statisticsCards {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  width: 24%;
+  &__card {
+    background-color: #fbfbfb;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1em;
+    padding: 1em 1.5em;
+    &--image {
+      width: 4em;
+      height: 4em;
+      img {
+        width: 100%;
+      }
+    }
+    &--data {
+      margin: 0 0 0 1em;
+      h5 {
+        font-size: 1em;
+        margin: 0.5em 0;
+      }
+      h6 {
+        font-size: 0.8em;
+        margin: 0.5em 0;
+        color: #74798C;
+      }
+    }
+  }
+}

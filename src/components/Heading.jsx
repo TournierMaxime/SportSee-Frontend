@@ -2,7 +2,7 @@ import React from "react"
 
 const Heading = ({ firstName }) => {
     return (
-        <div>
+        <div className="heading">
           <h1>
             Bonjour{" "}
             <span style={{ color: "red" }}>

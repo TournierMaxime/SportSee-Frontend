@@ -1,40 +1,43 @@
 .container {
   display: flex;
-  flex-direction: column;
-  margin: 2em 0 0 4em;
-  &__cards {
-    display: flex;
-    flex-direction: row;
-    &--card {
-      display: flex;
-      flex-direction: column;
-      width: 80%;
-    }
-  }
+  flex: 1 1;
+  display: grid;
+  gap: clamp(20px, 2vw, 32px);
+  grid-template-columns: repeat(4, auto);
+  grid-template-rows: repeat(3, min-content);
+  grid-template-areas:
+      "heading heading heading heading"
+      "activity activity activity nutrients"
+      "square square square nutrients";
+  padding-top: clamp(10px, 3vw, 40px);
+  padding-right: clamp(10px, 1vw, 60px);
+  padding-left: clamp(10px, 1vw, 107px);
 }
 
 .verticalNav {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: #000;
-  padding: 2em;
-  width: 4em;
-  position: relative;
+  justify-content: center;
+  background-color: black;
+  max-width: 120px;
+  min-width: 90px;
   &__ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    margin: 0;
+    align-items: center;
+    margin-bottom: 90px;
     padding: 0;
     &--li {
-      margin: 1em 0
+      margin: 1em 0;
+      color: white
     }
   }
   .copyright {
   position: absolute;
-  bottom: 59px;
+  bottom: 10px;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   white-space: nowrap;
@@ -43,3 +46,7 @@
 }
 }
 
+.heading {
+  grid-area: heading;
+  margin-bottom: clamp(15px, 3vh, 50px);
+}

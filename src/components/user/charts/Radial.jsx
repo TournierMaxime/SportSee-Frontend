@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { RadialBarChart, RadialBar } from "recharts"
+import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts"
 
 const Radial = ({ data }) => {
   const score = isNaN(data) ? 0 : Number(data)
@@ -19,27 +19,23 @@ const Radial = ({ data }) => {
   return (
     <Fragment>
       <p className="radialChart__title">Score</p>
-      <div className="radialChart__label">
-        <p className="radialChart__label--pourcent">{data}%</p>
-        <p className="radialChart__label--goal">
-          de votre
-          <br />
-          objectif
-        </p>
+      <div className={"radialChart__goal"}>
+        <p>{score}%</p>
+        <p>de votre objectif</p>
       </div>
-      <RadialBarChart
-        width={250}
-        height={200}
-        innerRadius={150}
-        outerRadius={0}
-        barSize={10}
-        startAngle={90}
-        endAngle={450}
-        data={arr}
-        style={{ marginTop: "1em" }}
-          >
-        <RadialBar minAngle={15} clockWise dataKey="uv" cornerRadius={5} />
-      </RadialBarChart>
+      <ResponsiveContainer width="99%">
+        <RadialBarChart
+          innerRadius={80}
+          outerRadius={80}
+          barSize={10}
+          startAngle={90}
+          endAngle={450}
+          data={arr}
+          style={{ marginTop: "2em" }}
+        >
+          <RadialBar minAngle={15} clockWise dataKey="uv" cornerRadius={5} />
+        </RadialBarChart>
+      </ResponsiveContainer>
     </Fragment>
   )
 }

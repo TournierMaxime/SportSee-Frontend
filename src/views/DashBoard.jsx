@@ -35,17 +35,14 @@ const DashBoard = () => {
       />
       <div className="container">
         <Heading firstName={userData?.userInfos?.identity?.firstName} />
-        <div className="container__cards">
-          <div className="container__cards--card">
-            <Activity data={userData?.activity} />
-            <div className="charts">
-              <Sessions data={userData?.averageSessions} />
-              <Performances data={userData?.performance} />
-              <Score data={userData?.userInfos?.score} />
-            </div>
-          </div>
-          <Statistics nutrients={userData?.userInfos?.nutrients} />
+        <Activity data={userData?.activity} />
+        <div className="charts">
+          <Sessions data={userData?.averageSessions} />
+          <Performances data={userData?.performance} />
+          <Score data={userData?.userInfos?.score} />
         </div>
+
+        <Statistics nutrients={userData?.userInfos?.nutrients} />
       </div>
     </Fragment>
   )

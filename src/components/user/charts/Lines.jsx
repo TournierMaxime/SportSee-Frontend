@@ -1,12 +1,13 @@
 import React from "react"
-import { XAxis, Tooltip, LineChart, Line } from "recharts"
+import { XAxis, Tooltip, LineChart, Line, ResponsiveContainer } from "recharts"
 import Statistics from "../../../utils/Statistics"
 
 const Lines = ({ data }) => {
   const renderTooltip = Statistics.tooltipLine
 
   return (
-    <LineChart width={180} height={100} data={data}>
+    <ResponsiveContainer height={"65%"}>
+    <LineChart data={data}>
       <XAxis
         dataKey="day"
         axisLine={false}
@@ -28,6 +29,7 @@ const Lines = ({ data }) => {
         unit="min"
       />
     </LineChart>
+    </ResponsiveContainer>
   )
 }
 

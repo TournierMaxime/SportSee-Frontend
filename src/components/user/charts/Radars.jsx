@@ -7,6 +7,14 @@ import {
   ResponsiveContainer,
 } from "recharts"
 
+/**
+ * @component
+ * @param {Object[]} data - Data in the radar chart :
+ *    @param {string} data[].kind 
+ *    @param {number} data[].value 
+ */
+
+
 const Radars = ({ data }) => {
   return (
     <ResponsiveContainer>

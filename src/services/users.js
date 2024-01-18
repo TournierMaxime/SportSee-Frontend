@@ -5,6 +5,23 @@ import Fat from "../assets/icons/fat.png";
 import Protein from "../assets/icons/protein.png";
 import Kcal from "../assets/icons/kcal.png";
 
+/**
+ * Models Class:
+ * - userInfos(serviceData): Formats user information and key data.
+ * - activity(serviceData): Formats user activity data.
+ * - averageSessions(serviceData): Formats user average session data.
+ * - performance(serviceData): Formats user performance data.
+ *
+ * UserServices Class:
+ * - fetchData(url): Fetches data from the given URL.
+ * - getAllData(userId): Fetches and formats all user data (information, activity, average sessions, performance).
+ * - getOneUser(userId): Fetches and formats user information.
+ * - getUserActivity(userId): Fetches and formats user activity data.
+ * - getUserAverageSessions(userId): Fetches and formats user average session data.
+ * - getUserPerformance(userId): Fetches and formats user performance data.
+ */
+
+
 class Models {
 
   userInfos(serviceData) {

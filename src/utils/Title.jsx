@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { HelmetProvider, Helmet } from 'react-helmet-async';
 
 /**
- * Composant pour définir le titre de la page.
- * @param {object} props - L'objet props.
- * @param {string} props.title - Le titre de la page.
- * @returns {React.ReactElement} Le composant Title.
+ * Component to define the title page.
+ * @param {object} props - Props object.
+ * @param {string} props.title - title page.
+ * @returns {React.ReactElement} Component Title.
 */
 
 const Title = ({ title }) => {

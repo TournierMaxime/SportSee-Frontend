@@ -2,6 +2,14 @@ import React from "react"
 import { XAxis, Tooltip, LineChart, Line, ResponsiveContainer } from "recharts"
 import Statistics from "../../../utils/Statistics"
 
+/**
+ * @component
+ * @param {Object[]} data - Data in the line chart :
+ *    @param {string} data[].day - Label for the X-axis.
+ *    @param {number} data[].sessionLength - Y-axis.
+ */
+
+
 const Lines = ({ data }) => {
   const renderTooltip = Statistics.tooltipLine
 

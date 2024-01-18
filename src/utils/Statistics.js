@@ -1,5 +1,14 @@
 import React from "react"
 
+/**
+ * Methods:
+ * - tooltipBar(props): Returns a custom tooltip for bar charts. It displays weight and calories when active.
+ *    - props: The props passed by the recharts library, containing information about the active payload.
+ * - tooltipLine(props): Returns a custom tooltip for line charts. It displays the session length when active.
+ *    - props: The props passed by the recharts library, containing information about the active payload.
+ */
+
+
 class Statistics {
 
   static tooltipBar = (props) => {

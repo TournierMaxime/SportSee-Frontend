@@ -10,6 +10,15 @@ import {
 import React from "react"
 import Statistics from "../../../utils/Statistics"
 
+/**
+ * @component
+ * @param {Object[]} data - Data in the histogram :
+ *    @param {number} data[].index - Label for the X-axis.
+ *    @param {number} data[].kilogram - Left Y-axis.
+ *    @param {number} data[].calories - Right Y-axis.
+ */
+
+
 const Histogram = ({ data }) => {
   const renderTooltip = Statistics.tooltipBar
 

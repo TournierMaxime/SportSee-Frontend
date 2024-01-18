@@ -1,6 +1,12 @@
 import React from "react"
 import Lines from "./charts/Lines"
 
+/**
+ * @component
+ * @param {Object[]} data - The data to be visualized in the line chart.
+ */
+
+
 const Sessions = ({ data }) => {
   return (
     <div className="sessionsChart">

@@ -11,18 +11,16 @@ import Statistics from "../components/Statistics"
 import Heading from "../components/Heading"
 
 /**
- * Composant pour définir le titre de la page.
- * @param {object} props - L'objet props.
- * @param {number} props.userId - Le titre de la page.
- * @returns {React.ReactElement} Le composant Title.
+ * @component
+ * @param {Object} props - The props object.
+ * @param {number} props.userId - The user's unique identifier.
+ * @returns {React.ReactElement} The DashBoard component which includes user-specific data visualizations and statistics.
  */
 
 const DashBoard = () => {
   const { userId } = useParams()
 
   const { userData, fetchData } = useFetch({ userId })
-
-  console.log("userData", userData)
 
   useEffect(() => {
     fetchData()

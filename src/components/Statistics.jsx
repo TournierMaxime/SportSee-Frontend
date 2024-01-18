@@ -1,5 +1,21 @@
 import React from "react"
 
+/**
+ * Each card shows:
+ * - Icon: A visual representation of the nutrient.
+ * - Count: The quantity of the nutrient.
+ * - Unit: The measurement unit for the nutrient count.
+ * - Name: The name of the nutrient.
+ *
+ * @component
+ * @param {Object[]} nutrients - An array of nutrient objects :
+ *    @param {string} nutrients[].name - The name of the nutrient.
+ *    @param {string} nutrients[].unit - The unit of measurement for the nutrient.
+ *    @param {string} nutrients[].icon - The URL or path to the icon representing the nutrient.
+ *    @param {number|string} nutrients[].count - The quantity of the nutrient.
+ */
+
+
 const Statistics = ({ nutrients }) => {
   return (
     <div className="statisticsCards">

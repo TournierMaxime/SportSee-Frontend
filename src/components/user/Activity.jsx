@@ -1,6 +1,12 @@
 import React from "react"
 import Histogram from "./charts/Histogram"
 
+/**
+ * @component
+ * @param {Object[]} data - The data to be visualized in the histogram.
+ */
+
+
 const Activity = ({ data }) => {
   if (!data) {
     return null

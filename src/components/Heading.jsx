@@ -1,5 +1,11 @@
 import React from "react"
 
+/**
+ * @component
+ * @param {string} firstName - The firstname of the user.
+ */
+
+
 const Heading = ({ firstName }) => {
     return (
         <div className="heading">

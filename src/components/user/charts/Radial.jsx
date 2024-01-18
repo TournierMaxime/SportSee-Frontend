@@ -1,6 +1,12 @@
 import React, { Fragment } from "react"
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts"
 
+/**
+ * @component
+ * @param {number|string} data - Score to be visualized. 
+ */
+
+
 const Radial = ({ data }) => {
   const score = isNaN(data) ? 0 : Number(data)
 

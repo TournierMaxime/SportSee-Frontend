@@ -1,6 +1,18 @@
 import { useState } from "react"
 import userServices from "../services/users"
 
+/**
+ * @hook
+ * @param {Object} params - Parameters for the hook.
+ *   @param {string|number} params.userId - The user ID for which data needs to be fetched.
+ * @returns {Object} - An object containing:
+ *   @returns {Object|null} userData - The fetched user data.
+ *   @returns {boolean} loading.
+ *   @returns {Object|null} error.
+ *   @returns {Function} fetchData - A function to trigger the fetch operation.
+ */
+
+
 const useFetch = ({ userId }) => {
   const [userData, setUserData] = useState(null)
   const [error, setError] = useState(null)

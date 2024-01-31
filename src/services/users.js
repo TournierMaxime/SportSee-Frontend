@@ -1,9 +1,13 @@
-
-import { api as http } from "./axios.js";
-import Carbs from "../assets/icons/carbs.png";
-import Fat from "../assets/icons/fat.png";
-import Protein from "../assets/icons/protein.png";
-import Kcal from "../assets/icons/kcal.png";
+import Carbs from "../assets/icons/carbs.png"
+import Fat from "../assets/icons/fat.png"
+import Protein from "../assets/icons/protein.png"
+import Kcal from "../assets/icons/kcal.png"
+import {
+  activity,
+  averageSessions,
+  informations,
+  performance,
+} from "../mocks/users.js"
 
 /**
  * Models Class:
@@ -21,11 +25,9 @@ import Kcal from "../assets/icons/kcal.png";
  * - getUserPerformance(userId): Fetches and formats user performance data.
  */
 
-
 class Models {
-
   userInfos(serviceData) {
-    const { id, userInfos, score, keyData } = serviceData.data.data;
+    const { id, userInfos, score, keyData } = serviceData.data.data
 
     return {
       id,
@@ -40,48 +42,48 @@ class Models {
           name: "Calories",
           unit: "kCal",
           count: keyData?.calorieCount || 0,
-          icon: Carbs
+          icon: Carbs,
         },
         {
           name: "Protéines",
           unit: "g",
           count: keyData?.proteinCount || 0,
-          icon: Protein
+          icon: Protein,
         },
         {
           name: "Glucides",
           unit: "g",
           count: keyData?.carbohydrateCount || 0,
-          icon: Kcal
+          icon: Kcal,
         },
         {
           name: "Lipides",
           unit: "g",
           count: keyData?.lipidCount || 0,
-          icon: Fat
-        }
-      ]
-    };
+          icon: Fat,
+        },
+      ],
+    }
   }
 
   activity(serviceData) {
-    const { sessions } = serviceData.data.data;
+    const { sessions } = serviceData.data.data
 
     return Array.isArray(sessions)
       ? sessions.map((item, index) => {
-        const { day, kilogram, calories } = item
-        return {
-          day: day || "",
-          kilogram: kilogram || 0,
-          calories: calories || 0,
-          index: index + 1
-        };
-      })
-      : [];
+          const { day, kilogram, calories } = item
+          return {
+            day: day || "",
+            kilogram: kilogram || 0,
+            calories: calories || 0,
+            index: index + 1,
+          }
+        })
+      : []
   }
 
   averageSessions(serviceData) {
-    const { sessions } = serviceData.data.data;
+    const { sessions } = serviceData.data.data
 
     const days = {
       1: "L",
@@ -90,59 +92,57 @@ class Models {
       4: "J",
       5: "V",
       6: "S",
-      7: "D"
-    };
+      7: "D",
+    }
 
     return Array.isArray(sessions)
       ? sessions.map((item) => {
-        const { day, sessionLength } = item
-        return {
-          day: days[day] || 0,
-          sessionLength: sessionLength || 0,
-        };
-      })
-      : [];
+          const { day, sessionLength } = item
+          return {
+            day: days[day] || 0,
+            sessionLength: sessionLength || 0,
+          }
+        })
+      : []
   }
 
   performance(serviceData) {
-    const { data } = serviceData.data.data;
+    const { data } = serviceData.data.data
 
     const kindNames = {
-      1: 'Cardio',
-      2: 'Energie',
-      3: 'Endurance',
-      4: 'Force',
-      5: 'Vitesse',
-      6: 'Intensité'
-    };
+      1: "Cardio",
+      2: "Energie",
+      3: "Endurance",
+      4: "Force",
+      5: "Vitesse",
+      6: "Intensité",
+    }
 
     return Array.isArray(data)
       ? data
-        .map((item) => {
-          const { value, kind } = item
-          return {
-            value: value || 0,
-            kind: kindNames[kind] || 0
-          };
-        })
-        .reverse()
-      : [];
+          .map((item) => {
+            const { value, kind } = item
+            return {
+              value: value || 0,
+              kind: kindNames[kind] || 0,
+            }
+          })
+          .reverse()
+      : []
   }
-  
 }
 
 const model = new Models()
 
 class UserServices extends Models {
-
   async fetchData(url) {
-    const response = await http.get(url);
+    const response = await http.get(url)
 
     if (response.status === 404) {
-      throw new Error("Utilisateur non trouvé !");
+      throw new Error("Utilisateur non trouvé !")
     }
     if (response.ok === false) {
-      throw new Error("Une erreur est survenue");
+      throw new Error("Une erreur est survenue")
     }
 
     return response
@@ -153,36 +153,68 @@ class UserServices extends Models {
       this.getOneUser(userId),
       this.getUserActivity(userId),
       this.getUserAverageSessions(userId),
-      this.getUserPerformance(userId)
-    ]);
+      this.getUserPerformance(userId),
+    ])
   }
 
   async getOneUser(userId) {
-    const url = `/user/${userId}`;
-    const userInfos = await this.fetchData(url);
-    return model.userInfos(userInfos);
+    const url = `/user/${userId}`
+    const userInfos = await this.fetchData(url)
+    return model.userInfos(userInfos)
   }
 
   async getUserActivity(userId) {
-    const url = `/user/${userId}/activity`;
-    const userActivity = await this.fetchData(url);
-    return model.activity(userActivity);
+    const url = `/user/${userId}/activity`
+    const userActivity = await this.fetchData(url)
+    return model.activity(userActivity)
   }
 
   async getUserAverageSessions(userId) {
-    const url = `/user/${userId}/average-sessions`;
-    const userAverageSessions = await this.fetchData(url);
-    return model.averageSessions(userAverageSessions);
+    const url = `/user/${userId}/average-sessions`
+    const userAverageSessions = await this.fetchData(url)
+    return model.averageSessions(userAverageSessions)
   }
 
   async getUserPerformance(userId) {
-    const url = `/user/${userId}/performance`;
-    const userPerformance = await this.fetchData(url);
-    return model.performance(userPerformance);
+    const url = `/user/${userId}/performance`
+    const userPerformance = await this.fetchData(url)
+    return model.performance(userPerformance)
   }
-
 }
 
-const userServices = new UserServices();
+const userServices = new UserServices()
 
-export default userServices;
+class UserMockData extends Models {
+  async getAllData(userId) {
+    return Promise.all([
+      this.getOneUser(userId),
+      this.getUserActivity(userId),
+      this.getUserAverageSessions(userId),
+      this.getUserPerformance(userId),
+    ])
+  }
+
+  async getOneUser(userId) {
+    const data = await informations[userId]
+    return model.userInfos(data)
+  }
+
+  async getUserActivity(userId) {
+    const data = await activity[userId]
+    return model.activity(data)
+  }
+
+  async getUserAverageSessions(userId) {
+    const data = await averageSessions[userId]
+    return model.averageSessions(data)
+  }
+
+  async getUserPerformance(userId) {
+    const data = await performance[userId]
+    return model.performance(data)
+  }
+}
+
+const userMockData = new UserMockData()
+
+export { userServices, userMockData }

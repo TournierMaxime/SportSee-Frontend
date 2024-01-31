@@ -1,5 +1,5 @@
 import { useState } from "react"
-import userServices from "../services/users"
+import { userServices } from "../services/users"
 
 /**
  * @hook

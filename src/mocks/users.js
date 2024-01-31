@@ -4,37 +4,37 @@ const activity = {
       userId: 12,
       sessions: [
         {
-          day: '2020-07-01',
-          kilogram: 80,
-          calories: 240
-        },
-        {
-          day: '2020-07-02',
-          kilogram: 80,
+          day: '2022-01-01',
+          kilogram: 78,
           calories: 220
         },
         {
-          day: '2020-07-03',
-          kilogram: 81,
-          calories: 280
+          day: '2022-01-02',
+          kilogram: 79,
+          calories: 230
         },
         {
-          day: '2020-07-04',
+          day: '2022-01-03',
+          kilogram: 80,
+          calories: 260
+        },
+        {
+          day: '2022-01-04',
           kilogram: 81,
           calories: 290
         },
         {
-          day: '2020-07-05',
+          day: '2022-01-05',
           kilogram: 80,
           calories: 160
         },
         {
-          day: '2020-07-06',
+          day: '2022-01-06',
           kilogram: 78,
           calories: 162
         },
         {
-          day: '2020-07-07',
+          day: '2022-01-07',
           kilogram: 76,
           calories: 390
         }
@@ -46,37 +46,37 @@ const activity = {
       userId: 18,
       sessions: [
         {
-          day: '2020-07-01',
-          kilogram: 70,
-          calories: 240
+          day: '2021-07-01',
+          kilogram: 69,
+          calories: 200
         },
         {
-          day: '2020-07-02',
+          day: '2021-07-02',
           kilogram: 69,
           calories: 220
         },
         {
-          day: '2020-07-03',
+          day: '2021-07-03',
           kilogram: 70,
-          calories: 280
+          calories: 260
         },
         {
-          day: '2020-07-04',
-          kilogram: 70,
+          day: '2021-07-04',
+          kilogram: 71,
           calories: 500
         },
         {
-          day: '2020-07-05',
+          day: '2021-07-05',
           kilogram: 69,
           calories: 160
         },
         {
-          day: '2020-07-06',
+          day: '2021-07-06',
           kilogram: 69,
           calories: 162
         },
         {
-          day: '2020-07-07',
+          day: '2021-07-07',
           kilogram: 69,
           calories: 390
         }
@@ -92,27 +92,27 @@ const averageSessions = {
       sessions: [
         {
           day: 1,
-          sessionLength: 30
+          sessionLength: 28
         },
         {
           day: 2,
-          sessionLength: 23
+          sessionLength: 26
         },
         {
           day: 3,
-          sessionLength: 45
+          sessionLength: 40
         },
         {
           day: 4,
-          sessionLength: 50
+          sessionLength: 60
         },
         {
           day: 5,
-          sessionLength: 0
+          sessionLength: 45
         },
         {
           day: 6,
-          sessionLength: 0
+          sessionLength: 35
         },
         {
           day: 7,
@@ -127,15 +127,15 @@ const averageSessions = {
       sessions: [
         {
           day: 1,
-          sessionLength: 30
+          sessionLength: 20
         },
         {
           day: 2,
-          sessionLength: 40
+          sessionLength: 26
         },
         {
           day: 3,
-          sessionLength: 50
+          sessionLength: 35
         },
         {
           day: 4,
@@ -143,15 +143,15 @@ const averageSessions = {
         },
         {
           day: 5,
-          sessionLength: 30
+          sessionLength: 40
         },
         {
           day: 6,
-          sessionLength: 50
+          sessionLength: 45
         },
         {
           day: 7,
-          sessionLength: 50
+          sessionLength: 62
         }
       ]
     }
@@ -163,16 +163,16 @@ const informations = {
     data: {
       id: 12,
       userInfos: {
-        firstName: "MockTar",
-        lastName: 'Pelegrino',
-        age: 31,
+        firstName: "Victor",
+        lastName: 'Strand',
+        age: 42,
       },
-      todayScore: 0.12,
+      score: 0.25,
       keyData: {
-        calorieCount: 1930,
-        proteinCount: 155,
-        carbohydrateCount: 290,
-        lipidCount: 50
+        calorieCount: 1820,
+        proteinCount: 200,
+        carbohydrateCount: 260,
+        lipidCount: 40
       }
     }
   },
@@ -180,16 +180,16 @@ const informations = {
     data: {
       id: 18,
       userInfos: {
-        firstName: 'Jean Mock',
-        lastName: 'Pestrouki',
-        age: 34,
+        firstName: 'Mike',
+        lastName: 'Plissken',
+        age: 32,
       },
-      score: 0.3,
+      score: 0.5,
       keyData: {
-        calorieCount: 2500,
-        proteinCount: 90,
-        carbohydrateCount: 150,
-        lipidCount: 120
+        calorieCount: 2000,
+        proteinCount: 100,
+        carbohydrateCount: 220,
+        lipidCount: 100
       }
     }
   }
@@ -209,23 +209,23 @@ const performance = {
       },
       data: [
         {
-          value: 80,
+          value: 60,
           kind: 1
         },
         {
-          value: 120,
+          value: 80,
           kind: 2
         },
         {
-          value: 140,
+          value: 75,
           kind: 3
         },
         {
-          value: 50,
+          value: 60,
           kind: 4
         },
         {
-          value: 200,
+          value: 100,
           kind: 5
         },
         {
@@ -248,27 +248,27 @@ const performance = {
       },
       data: [
         {
-          value: 200,
+          value: 180,
           kind: 1
         },
         {
-          value: 240,
+          value: 220,
           kind: 2
         },
         {
-          value: 80,
+          value: 200,
           kind: 3
         },
         {
-          value: 80,
+          value: 180,
           kind: 4
         },
         {
-          value: 220,
+          value: 210,
           kind: 5
         },
         {
-          value: 110,
+          value: 150,
           kind: 6
         }
       ]

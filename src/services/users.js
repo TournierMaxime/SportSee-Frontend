@@ -2,12 +2,8 @@ import Carbs from "../assets/icons/carbs.png"
 import Fat from "../assets/icons/fat.png"
 import Protein from "../assets/icons/protein.png"
 import Kcal from "../assets/icons/kcal.png"
-import {
-  activity,
-  averageSessions,
-  informations,
-  performance,
-} from "../mocks/users.js"
+import { api as http } from "../services/axios"
+import { mockAxios } from "../services/axios"
 
 /**
  * Models Class:
@@ -185,33 +181,35 @@ class UserServices extends Models {
 const userServices = new UserServices()
 
 class UserMockData extends Models {
+  async getOneUser(userId) {
+    const userInfos = await mockAxios(userId, 'informations');
+    return model.userInfos(userInfos);
+  }
+
+  async getUserActivity(userId) {
+    const userActivity = await mockAxios(userId, 'activity');
+    return model.activity(userActivity);
+  }
+
+  async getUserAverageSessions(userId) {
+    const userAverageSessions = await mockAxios(userId, 'averageSessions');
+    return model.averageSessions(userAverageSessions);
+  }
+
+  async getUserPerformance(userId) {
+    const userPerformance = await mockAxios(userId, 'performance');
+    return model.performance(userPerformance);
+  }
+
   async getAllData(userId) {
-    return Promise.all([
+    const [userInfos, activity, averageSessions, performance] = await Promise.all([
       this.getOneUser(userId),
       this.getUserActivity(userId),
       this.getUserAverageSessions(userId),
       this.getUserPerformance(userId),
-    ])
-  }
+    ]);
 
-  async getOneUser(userId) {
-    const data = await informations[userId]
-    return model.userInfos(data)
-  }
-
-  async getUserActivity(userId) {
-    const data = await activity[userId]
-    return model.activity(data)
-  }
-
-  async getUserAverageSessions(userId) {
-    const data = await averageSessions[userId]
-    return model.averageSessions(data)
-  }
-
-  async getUserPerformance(userId) {
-    const data = await performance[userId]
-    return model.performance(data)
+    return [userInfos, activity, averageSessions, performance];
   }
 }
 

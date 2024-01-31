@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { userServices } from "../services/users"
+import { userServices, userMockData } from "../services/users"
 
 /**
  * @hook
@@ -12,7 +12,6 @@ import { userServices } from "../services/users"
  *   @returns {Function} fetchData - A function to trigger the fetch operation.
  */
 
-
 const useFetch = ({ userId }) => {
   const [userData, setUserData] = useState(null)
   const [error, setError] = useState(null)
@@ -22,7 +21,11 @@ const useFetch = ({ userId }) => {
     try {
       setLoading(true)
 
-      const data = await userServices.getAllData(userId)
+      const data =
+        process.env.REACT_APP_ENV === "API"
+          ? await userServices.getAllData(userId)
+          : await userMockData.getAllData(userId)
+
       const [userInfos, activity, averageSessions, performance] = data
 
       setUserData({ userInfos, activity, averageSessions, performance })

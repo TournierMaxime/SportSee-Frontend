@@ -1,6 +1,6 @@
 .activityChart {
   position: relative;
-  grid-area: activity;
+  //grid-area: activity;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -9,10 +9,10 @@
   padding: 23px 29px 23px 43px;
   padding-inline: clamp(10px, 2vw, 29px) clamp(10px, 3vw, 20px);
   padding-block: clamp(10px, 2vw, 23px);
-  max-width: 835px;
+  //max-width: 835px;
   min-width: 500px;
   width: 100%;
-  max-height: 320px;
+  //max-height: 320px;
   height: 100%;
   &__container {
     display: flex;
@@ -30,6 +30,9 @@
       font-weight: bold;
       font-size: 0.8em;
       color: #74798c;
+      position: absolute;
+      right: 0;
+      margin-right: 1em;
       .axisTitle {
         margin: 0 5px 0 5px;
       }
@@ -98,6 +101,7 @@
   padding-bottom: 15px;
   overflow: hidden;
   background-color: #fbfbfb;
+  margin-right: 0.5em;
   &__title {
     font-size: 15px;
     font-weight: 500;
@@ -147,5 +151,7 @@
 .charts {
   grid-area: square;
   display: flex;
+  justify-content: space-between;
   gap: clamp(20px, 2vw, 32px);
+  margin-top: 2em;
 }

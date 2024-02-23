@@ -10,15 +10,19 @@ import {
 /**
  * @component
  * @param {Object[]} data - Data in the radar chart :
- *    @param {string} data[].kind 
- *    @param {number} data[].value 
+ *    @param {string} data[].kind
+ *    @param {number} data[].value
  */
-
 
 const Radars = ({ data }) => {
   return (
     <ResponsiveContainer>
-      <RadarChart width={230} height={210} data={data}>
+      <RadarChart
+        outerRadius={64}
+        width={230}
+        height={210}
+        data={data}
+      >
         <PolarGrid radialLines={false} />
         <PolarAngleAxis
           dataKey="kind"

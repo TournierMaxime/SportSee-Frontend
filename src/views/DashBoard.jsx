@@ -37,7 +37,7 @@ const DashBoard = () => {
         <div className="charts">
           <Sessions data={userData?.averageSessions} />
           <Performances data={userData?.performance} />
-          <Score data={userData?.userInfos?.score} />
+          <Score data={userData?.userInfos?.todayScore} />
         </div>
 
         <Statistics nutrients={userData?.userInfos?.nutrients} />

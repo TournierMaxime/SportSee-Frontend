@@ -23,7 +23,7 @@ import { mockAxios } from "../services/axios"
 
 class Models {
   userInfos(serviceData) {
-    const { id, userInfos, score, keyData } = serviceData.data.data
+    const { id, userInfos, score, todayScore, keyData } = serviceData.data.data
 
     return {
       id,
@@ -32,7 +32,7 @@ class Models {
         lastName: userInfos?.lastName || "",
         age: userInfos?.age || 0,
       },
-      score: (score || 0) * 100,
+      todayScore: (score || todayScore || 0) * 100,
       nutrients: [
         {
           name: "Calories",

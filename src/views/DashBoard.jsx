@@ -20,7 +20,7 @@ import Heading from "../components/Heading"
 const DashBoard = () => {
   const { userId } = useParams()
 
-  const { userData, fetchData } = useFetch({ userId })
+  const { userData, fetchData, error, loading } = useFetch({ userId })
 
   useEffect(() => {
     fetchData()
@@ -31,17 +31,25 @@ const DashBoard = () => {
       <Title
         title={`Profil de ${userData?.userInfos?.identity?.lastName} ${userData?.userInfos?.identity?.firstName}`}
       />
-      <div className="container">
-        <Heading firstName={userData?.userInfos?.identity?.firstName} />
-        <Activity data={userData?.activity} />
-        <div className="charts">
-          <Sessions data={userData?.averageSessions} />
-          <Performances data={userData?.performance} />
-          <Score data={userData?.userInfos?.todayScore} />
-        </div>
+      {loading ? (
+        <i className="infoMsg">Chargement des données</i>
+      ) : error ? (
+        <i className="infoMsg">Les données ne sont pas disponible pour le moment</i>
+      ) : (
+        userData && (
+          <div className="container">
+            <Heading firstName={userData?.userInfos?.identity?.firstName} />
+            <Activity data={userData?.activity} />
+            <div className="charts">
+              <Sessions data={userData?.averageSessions} />
+              <Performances data={userData?.performance} />
+              <Score data={userData?.userInfos?.todayScore} />
+            </div>
 
-        <Statistics nutrients={userData?.userInfos?.nutrients} />
-      </div>
+            <Statistics nutrients={userData?.userInfos?.nutrients} />
+          </div>
+        )
+      )}
     </Fragment>
   )
 }

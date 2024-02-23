@@ -29,7 +29,7 @@ const Lines = ({ data }) => {
       />
       <Line
         dataKey="sessionLength"
-        type="basis"
+        type="bumpX"
         dot={false}
         stroke="white"
         opacity={0.5}
